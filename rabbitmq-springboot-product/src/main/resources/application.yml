@@ -1,0 +1,17 @@
+spring:
+  rabbitmq:
+    host: 192.168.80.3
+    port: 5672
+    username: zimo
+    password: zimo
+    publisher-confirms: true #开启消息确认模式
+    publisher-returns: true #开启消息可达监听
+    template:
+      mandatory: true #开启不可达消息不会被broker删除
+    connection-timeout: 10000 #设置连接超时
+    virtual-host: study
+    listener:
+      simple:
+        acknowledge-mode: manual #开启手动确认
+        retry:
+          enabled: true #开始重试

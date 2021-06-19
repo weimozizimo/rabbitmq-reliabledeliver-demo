@@ -1,0 +1,15 @@
+server:
+  port: 8081
+spring:
+  rabbitmq:
+    host: 192.168.80.3
+    port: 5672
+    username: zimo
+    password: zimo
+    virtual-host: study
+    listener:
+      simple:
+        acknowledge-mode: manual #手动签收
+        concurrency: 5 #线程并发数
+        max-concurrency: 10 #最大线程并发数
+

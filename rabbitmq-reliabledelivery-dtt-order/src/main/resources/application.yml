@@ -1,0 +1,39 @@
+spring:
+  rabbitmq:
+    host: 192.168.80.3
+    port: 5672
+    username: zimo
+    password: zimo
+    publisher-confirms: true #开启消息确认模式
+    publisher-returns: true #开启消息可达监听
+    template:
+      mandatory: true #开启不可达消息不会被broker删除
+    connection-timeout: 10000 #设置连接超时
+    virtual-host: study
+  redis:
+    host: 192.168.80.3
+    port: 6379
+    database: 0
+  datasource:
+    druid:
+      username: root
+      password: 123456
+      jdbcUrl: jdbc:mysql://localhost:3306/tuling-mq?serverTimezone=UTC
+      driverClassName: com.mysql.jdcb.Driver
+      initialSize: 5
+      minIdel: 5
+      maxActive: 20
+      maxWait: 60000
+      timeBetweenEvictionRunsMillis: 60000
+      minEvictableIdalTimeMillis: 300000
+
+#配置mybatis
+mybatis:
+  mapper-locations: classpath:mybatis/mapper/*.xml
+  configuration:
+    map-underscore-to-camel-case: true
+logging:
+  level:
+    com.wyf.mapper: debug
+server:
+  port: 8080
